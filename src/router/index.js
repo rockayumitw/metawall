@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import Login from '../views/Page/Login.vue';
+import Register from '../views/Page/Register.vue';
 
 const routes = [
   // {
@@ -38,14 +40,14 @@ const routes = [
   //   ],
   // },
   {
-    path: '/Login',
+    path: '/',
     name: 'Login',
-    component: () => import('../views/Page/Login.vue'),
+    component: Login,
   },
   {
     path: '/Register',
     name: 'Register',
-    component: () => import('../views/Page/Register.vue'),
+    component: Register,
   },
   // {
   //   path: '/:pathMatch(.*)*',
