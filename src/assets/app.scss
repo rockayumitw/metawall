@@ -1,0 +1,59 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import '~vue-loading-overlay/dist/vue-loading.css';
+
+// 
+body {
+    @apply bg-gray-100;
+}
+
+
+// 客製化
+@layer base {
+    h1 {
+        @apply text-6xl;
+    }
+    h2 {
+        @apply text-5xl;
+    }
+}
+
+@layer components {
+    // .btn 預設樣式
+    // .btn-blue 其他樣式覆蓋
+    .btn {
+        @apply border-2 border-black rounded-md;
+    }
+    .btn-blue {
+        @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+        &:hover{
+            @apply bg-blue-700
+        }
+    }
+}
+
+@layer utilities {
+    // 偽元素
+    @variants group-hover, hover, focus {
+        .test {
+            color: yellow;
+        }
+    };
+    @responsive{
+        @variants hover, focus {
+            .filter-none {
+                filter: none;
+            }
+        }
+    }
+}
+
+
+// 客製化響應式
+@screen xs {
+    .white {
+        // theme用法: 從config.js 取出顏色的物件是白色
+        color: theme('colors.gray.500');
+    }
+}

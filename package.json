@@ -1,0 +1,95 @@
+{
+  "name": "metawall",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "cross-env TAILWIND_MODE=watch vue-cli-service serve",
+    "build": "cross-env TAILWIND_MODE=build vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "core-js": "^3.6.5",
+    "material-icons": "^1.10.8",
+    "moment": "^2.29.3",
+    "sweetalert2": "^11.4.10",
+    "tw-elements": "^1.0.0-alpha12",
+    "vue": "^3.0.0",
+    "vue-axios": "^3.4.1",
+    "vue-loading-overlay": "^5.0.3",
+    "vue-router": "^4.0.0-0",
+    "vue-sweetalert2": "^5.0.2",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.0",
+    "@vue/cli-plugin-babel": "~4.5.13",
+    "@vue/cli-plugin-eslint": "~4.5.13",
+    "@vue/cli-plugin-router": "~4.5.13",
+    "@vue/cli-plugin-unit-mocha": "~4.5.13",
+    "@vue/cli-plugin-vuex": "~4.5.13",
+    "@vue/cli-service": "~4.5.13",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "@vue/test-utils": "^2.0.0-0",
+    "autoprefixer": "^9.8.8",
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.1.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "lint-staged": "^9.5.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "@vue/airbnb"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "max-len": "off",
+      "import/no-extraneous-dependencies": "off",
+      "eslint-disable-next-line": "off",
+      "global-require": "off",
+      "no-param-reassign": "off",
+      "prefer-default-export": "off",
+      "no-unused-vars": "off"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "mocha": true
+        }
+      }
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+<template>
+  <div class="flex items-center justify-center mx-auto h-screen bg-gray-100">
+    <div class="flex items-center max-w-3md border-2
+     border-black mx-auto h-535 md:w-full px-10 drop-shadow-md">
+        <div class="hidden md:block md:w-1/2">
+            <img src="/assets/images/icon-login.svg" alt="">
+        </div>
+        <div class="w-full md:w-1/2">
+            <h2 class="text-center text-6xl font-black text-blue-300">MetaWall</h2>
+            <h3 class="text-center text-2xl mb-9 font-bold">到元宇宙展開全新社交圈</h3>
+            <form class="text-center max-w-sm" action="">
+                <label for="" class="block mb-4">
+                    <input class="border-2 border-black w-full"
+                        type="text" placeholder="Email" value=""/>
+                </label>
+                <label for="" class="block mb-8">
+                    <input class="border-2 border-black w-full"
+                    type="password" placeholder="Password" value=""/>
+                </label>
+                <small class="block text-danger text-sm mb-4">帳號或密碼錯誤，請重新輸入！</small>
+                <input type="submit"
+                 class="max-w-sm w-full rounded-lg bg-blue-300 text-white
+                 py-4 border-2 border-black mb-4 drop-shadow" value="登入">
+                <a class="block text-center" href="/">註冊帳號</a>
+            </form>
+        </div>
+    </div>
+  </div>
+</template>
