@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: './metawall/dist',
+  publicPath: './metawall/',
 };
