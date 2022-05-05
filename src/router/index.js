@@ -2,17 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
-    path: '/Login',
-    name: 'Login',
-    component: () => import('../views/Page/Login.vue'),
-  },
-  {
-    path: '/Register',
-    name: 'Register',
-    component: () => import('../views/Page/Register.vue'),
-  },
-  {
-    path: '/Home',
+    path: '/',
     name: 'Home',
     component: () => import('../views/Home.vue'),
     children: [
@@ -46,6 +36,16 @@ const routes = [
         component: () => import('../views/Page/Post.vue'),
       },
     ],
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: () => import('../views/Page/Login.vue'),
+  },
+  {
+    path: '/Register',
+    name: 'Register',
+    component: () => import('../views/Page/Register.vue'),
   },
   // {
   //   path: '/:pathMatch(.*)*',

@@ -94,7 +94,7 @@ export default {
     },
     // 文章送出
     async submit() {
-      this.posts.user_id = '626ff26de3a2ec22b6672f05';
+      this.posts.user_id = '6273edda00b09a7c5d39abb4';
       this.posts.type = 'group';
       this.posts.tags = 'cat';
       try {

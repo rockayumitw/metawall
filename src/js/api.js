@@ -30,13 +30,13 @@ function getJson(path, params, apiHost) {
 }
 
 export default {
-  // user: {
-  //   update: (data) => postJson('/api/Member/update', data),
-  // },
+  user: {
+    query: (data) => getJson('/users'),
+  },
   posts: {
     querys: (data) => postJson('/posts', data),
     query: (id) => getJson('/posts', id),
-    create: (data) => postJson('/posts', data),
+    create: (data) => postJson('/posts/create', data),
     deleteQuery: (id) => postJson('/posts', id),
     delete: () => postJson('/posts'),
     edit: (id) => postJson('/posts', id),
