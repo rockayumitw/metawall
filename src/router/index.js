@@ -47,11 +47,11 @@ const routes = [
       },
     ],
   },
-  {
-    path: '/:pathMatch(.*)*',
-    name: 'Error',
-    component: () => import('../views/Page/Error.vue'),
-  },
+  // {
+  //   path: '/:pathMatch(.*)*',
+  //   name: 'Error',
+  //   component: () => import('../views/Page/Error.vue'),
+  // },
 ];
 
 const router = createRouter({
