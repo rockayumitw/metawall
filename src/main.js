@@ -3,6 +3,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueLoading from 'vue-loading-overlay';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
