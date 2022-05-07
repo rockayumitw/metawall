@@ -5,7 +5,7 @@
     <ul class="flex justify-around items-center md:block">
       <li>
         <router-link
-          to="/user/:id/posts"
+          to="/user/6273edda00b09a7c5d39abb4/posts"
           class="text-center flex items-center group md:block rounded-full md:rounded-lg md:w-full md:border-2 md:text-white md:border-black md:bg-blue-300 md:hover:bg-orange font-black md:mb-6 md:py-4"
         >
           <span class="hidden md:block">張貼動態</span>

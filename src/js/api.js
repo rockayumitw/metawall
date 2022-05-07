@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const defAPIHosts = process.env.VUE_APP_WALL_API;
-console.log(defAPIHosts);
+// console.log(defAPIHosts);
 // const defAPIHosts = 'http://localhost:3000';
 
 const userRequest = axios.create({

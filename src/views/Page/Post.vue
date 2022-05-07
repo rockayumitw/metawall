@@ -23,11 +23,11 @@
                     <input class="form-control hidden" type="file" id="formFile" @change="onFileChange" accept="image/*">
                     <img v-if="posts.image" :src="posts.image" alt="">
                 </div> -->
-                <div class="mb-5">
-                    <label for="formFile" class="form-label text-base py-1 px-8 rounded-md inline-block mb-2 text-white bg-black">
+                <div class="mb-5 w-full">
+                    <!-- <label for="formFile" class="form-label text-base py-1 px-8 rounded-md inline-block mb-2 text-white bg-black">
                         上傳圖片
-                    </label>
-                    <input class="form-control" type="text" id="formFile" v-model="posts.image">
+                    </label> -->
+                    <input class="form-control w-full border-2 border-black" type="text" id="formFile" v-model="posts.image" placeholder="請輸入圖片網址">
                     <img v-if="posts.image" :src="posts.image" alt="">
                 </div>
             </div>
@@ -97,8 +97,8 @@ export default {
       this.posts.user_id = '6273edda00b09a7c5d39abb4';
       this.posts.type = 'group';
       this.posts.tags = 'cat';
-      try {
-        await this.$store.dispatch('posts/create', { ...this.posts }).then((res) => {
+      await this.$store.dispatch('posts/create', { ...this.posts }).then((res) => {
+        if (res.status === 200) {
           this.init();
           this.$swal.fire({
             position: 'top-end',
@@ -108,14 +108,16 @@ export default {
             timer: 1000,
           });
           this.$router.push({ path: '/' });
-        }).catch((err) => {
-          console.log(err);
+        } else {
+          this.$swal.fire(res.message, '', 'error');
+        }
+      }).catch((err) => {
+        if (err.response.status === 400) {
+          this.$swal.fire(err.response.data.message, '', 'error');
+        } else {
           this.$swal.fire(err.message, '', 'error');
-        });
-      } catch (err) {
-        console.log(err);
-        this.$swal.fire(err.message, '', 'error');
-      }
+        }
+      });
     },
     init() {
       this.posts = {

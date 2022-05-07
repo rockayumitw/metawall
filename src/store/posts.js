@@ -60,15 +60,13 @@ const posts = {
         commit('all/SAVE_LOADING', true, { root: true });
         try {
           api.posts.create(paylod).then((res) => {
-            resolve(res.data);
+            resolve(res);
             commit('all/SAVE_LOADING', false, { root: true });
           }).catch(async (err) => {
-            console.log(err);
             reject(err);
             commit('all/SAVE_LOADING', false, { root: true });
           });
         } catch (err) {
-          console.log(err);
           commit('all/SAVE_LOADING', false, { root: true });
           Swal.fire(err.message, '', 'error');
         }
