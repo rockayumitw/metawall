@@ -16,20 +16,20 @@
             </div>
             <div class="flex justify-center mb-8">
               <!--圖片上傳使用-->
-                <div class="mb-5">
+                <!-- <div class="mb-5">
                     <label for="formFile" class="form-label text-base py-1 px-8 rounded-md inline-block mb-2 text-white bg-black">
                         上傳圖片
                     </label>
                     <input class="form-control hidden" type="file" id="formFile" @change="onFileChange" accept="image/*">
                     <img v-if="posts.image" :src="posts.image" alt="">
-                </div>
-                <!-- <div class="mb-5">
+                </div> -->
+                <div class="mb-5">
                     <label for="formFile" class="form-label text-base py-1 px-8 rounded-md inline-block mb-2 text-white bg-black">
                         上傳圖片
                     </label>
                     <input class="form-control" type="text" id="formFile" v-model="posts.image">
                     <img v-if="posts.image" :src="posts.image" alt="">
-                </div> -->
+                </div>
             </div>
             <div class="mx-auto text-center">
                 <!--判斷格式-->
