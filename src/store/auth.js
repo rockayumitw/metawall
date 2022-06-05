@@ -15,7 +15,8 @@ const login = {
   }),
   mutations: {
     SAVE_AUTH(state, data) {
-      state.user = data;
+      state.user = data.user;
+      localStorage.setItem('token', data.user.token);
     },
   },
   getters: {
@@ -30,7 +31,10 @@ const login = {
       return new Promise((resolve, reject) => {
         try {
           api.auth.login(data).then((res) => {
-            commit('SAVE_AUTH', res.data);
+            console.log(res);
+            if (res.status === 200) {
+              commit('SAVE_AUTH', res.data);
+            }
             resolve(res);
           }).catch((e) => {
             reject(e);

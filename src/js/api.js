@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import handleErrorAsync from '@/js/handleErrorAsync';
 
 const defAPIHosts = process.env.VUE_APP_WALL_API;
 
@@ -12,8 +11,10 @@ const request = axios.create({
 
 // 攔截 API request 的請求
 request.interceptors.request.use((req) => {
-  console.log();
-  req.headers.Authorization = '';
+  const token = localStorage.getItem('token');
+  if (token != null) {
+    req.headers.Authorization = `Bearer ${token}`;
+  }
   return req;
 }, (error) => {
   console.log();
