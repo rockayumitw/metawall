@@ -3,7 +3,7 @@
     <div class="flex items-center max-w-3md border-2
      border-black mx-auto h-535 md:w-full px-10 drop-shadow-md">
         <div class="hidden md:block md:w-1/2">
-            <img src="/assets/images/icon-login.svg" alt="">
+            <img src="@/assets/images/icon-login.svg" alt="">
         </div>
         <div class="w-full md:w-1/2">
             <h2 class="text-center text-6xl font-black text-blue-300">MetaWall</h2>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import handleErrorAsync from '@/js/handleErrorAsync';
+// import handleErrorAsync from '@/js/handleErrorAsync';
 
 export default {
   data() {
@@ -44,13 +44,14 @@ export default {
   methods: {
     async submit() {
       await this.$store.dispatch('auth/login', {
-        email: 'test@test.com',
-        password: '1a2a3a4a',
+        email: this.email,
+        password: this.password,
       }).then((res) => {
         if (res.status === 200) {
           console.log('已經登入');
         }
       }).catch((e) => {
+        console.log(e);
         this.message = e.data.message;
       });
     },
