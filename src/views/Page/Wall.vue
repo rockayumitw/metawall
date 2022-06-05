@@ -62,10 +62,11 @@
     <!--有貼文-->
     <div v-if="querys.length > 0">
       <div class="border-2 border-black p-6 rounded-lg bg-white mb-5" v-for="(item, index) in querys" :key="index">
+        <!-- :name="item.user.name" :image="item.user.image"-->
         <Avater
-          :name="item.user.name"
+          name="test"
           :createAt="item.createAt"
-          :image="item.user.image"/>
+          image="#"/>
         <div class="">
           <!--內文-->
           <div class="mb-5">
@@ -80,6 +81,7 @@
               >
               <span>{{item.likes}}</span>
             </div>
+            <div @click="del(item)">測試刪除</div>
             <!-- <div class="flex items-center">
               <span class="material-icons-outlined text-gray-300 mr-2">thumb_up</span>
               <span class="text-gray-300 ">成為第一個案讚的朋友</span>
@@ -197,6 +199,13 @@ export default {
       await this.$store.dispatch('posts/getQuerys', {
         sort: this.select,
         content: this.search,
+      });
+    },
+    async del(item) {
+      // posts/626429db4d9d1b67c3719bf1
+      await this.$store.dispatch('posts/deleteQuery', {
+        // eslint-disable-next-line no-underscore-dangle
+        _id: item._id,
       });
     },
   },

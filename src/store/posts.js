@@ -73,12 +73,42 @@ const posts = {
       });
     },
     // 編輯單一篇文章
-    async edit() {
-      console.log('編輯文章');
+    async editQuery({ state, commit, dispatch }, paylod) {
+      return new Promise((resolve, reject) => {
+        commit('all/SAVE_LOADING', true, { root: true });
+        try {
+          // eslint-disable-next-line no-underscore-dangle
+          api.posts.editQuery(paylod).then((res) => {
+            resolve(res);
+            commit('all/SAVE_LOADING', false, { root: true });
+          }).catch(async (err) => {
+            reject(err);
+            commit('all/SAVE_LOADING', false, { root: true });
+          });
+        } catch (err) {
+          commit('all/SAVE_LOADING', false, { root: true });
+          Swal.fire(err.message, '', 'error');
+        }
+      });
     },
     // 刪除一篇文章
-    async deleteQuery() {
-      console.log('編輯文章');
+    async deleteQuery({ state, commit, dispatch }, paylod) {
+      return new Promise((resolve, reject) => {
+        commit('all/SAVE_LOADING', true, { root: true });
+        try {
+          // eslint-disable-next-line no-underscore-dangle
+          api.posts.deleteQuery(paylod._id).then((res) => {
+            resolve(res);
+            commit('all/SAVE_LOADING', false, { root: true });
+          }).catch(async (err) => {
+            reject(err);
+            commit('all/SAVE_LOADING', false, { root: true });
+          });
+        } catch (err) {
+          commit('all/SAVE_LOADING', false, { root: true });
+          Swal.fire(err.message, '', 'error');
+        }
+      });
     },
   },
 };
