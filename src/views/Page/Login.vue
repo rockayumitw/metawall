@@ -23,38 +23,34 @@
                 <input type="button"
                  class="max-w-sm w-full rounded-lg bg-blue-300 text-white
                  py-4 border-2 border-black mb-4 drop-shadow" value="登入" @click="submit">
-                <a class="block text-center" href="/">註冊帳號</a>
+                <router-link class="block text-center" to="/Register">註冊帳號</router-link>
             </form>
         </div>
     </div>
   </div>
 </template>
 
-<script>
-// import handleErrorAsync from '@/js/handleErrorAsync';
+<script setup>
+import { ref, reactive } from 'vue';
+import { useStore } from 'vuex';
 
-export default {
-  data() {
-    return {
-      email: '',
-      password: '',
-      message: '',
-    };
-  },
-  methods: {
-    async submit() {
-      await this.$store.dispatch('auth/login', {
-        email: this.email,
-        password: this.password,
-      }).then((res) => {
-        if (res.status === 200) {
-          console.log('已經登入');
-        }
-      }).catch((e) => {
-        console.log(e);
-        this.message = e.data.message;
-      });
-    },
-  },
+const message = ref('');
+const email = ref('');
+const password = ref('');
+const store = useStore();
+
+const submit = async () => {
+  await store.dispatch('auth/login', {
+    email,
+    password,
+  }).then((res) => {
+    if (res.status === 200) {
+      console.log('已經登入');
+    }
+  }).catch((e) => {
+    console.log(e);
+    message.value = e.data.message;
+    console.log(message);
+  });
 };
 </script>

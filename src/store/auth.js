@@ -24,8 +24,17 @@ const login = {
   },
   actions: {
     async register({ commit }, data) {
-      const result = await api.auth.register(data);
-      console.log(result);
+      return new Promise((resolve, reject) => {
+        try {
+          const result = api.auth.register(data);
+          if (result.status === 200) {
+            // commit('SAVE_AUTH', result.data);
+            resolve(result);
+          }
+        } catch (e) {
+          reject(e);
+        }
+      });
     },
     async login({ commit }, data) {
       return new Promise((resolve, reject) => {
@@ -40,6 +49,7 @@ const login = {
             reject(e);
           });
         } catch (e) {
+          console.log('錯誤');
           errorHandle(e);
         }
       });
